@@ -1,0 +1,264 @@
+@font-face {
+  font-family: "Helvetica";
+  src: url("./fonts/HelveticaNeueLTStd-Roman.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "HelveticaBold";
+  src: url("./fonts/HelveticaNeueLTStd-Bd.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "HelveticaBlack";
+  src: url("./fonts/HelveticaNeueLTStd-Blk.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "HelveticaLight";
+  src: url("./fonts/HelveticaLTStd-Light.otf") format("opentype");
+}
+
+#calculator-wrapper {
+  font-family: "Helvetica", sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: scroll;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6b6b6b+0,000000+100 */
+  background: #6b6b6b;
+  /* Old browsers */
+  /* FF3.6-15 */
+  /* Chrome10-25,Safari5.1-6 */
+  background: -webkit-gradient(linear, left top, left bottom, from(#6b6b6b), to(#000000));
+  background: linear-gradient(to bottom, #6b6b6b 0%, #000000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b6b6b', endColorstr='#000000',GradientType=0 );
+  /* IE6-9 */
+}
+
+#calculator-wrapper .calculator-portfolio {
+  position: absolute;
+  top: -5px;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 99;
+  height: 40px;
+  width: 230px;
+  color: black;
+  background: #ffd900;
+  border-radius: 0 0 40px 0;
+  -moz-border-radius: 0 0 40px 0;
+  -webkit-border-radius: 0 0 40px 0;
+  font-size: 14px;
+  vertical-align: middle;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 2px;
+  padding-left: 10px;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+#calculator-wrapper .calculator-portfolio:hover {
+  background: black;
+  color: white;
+}
+
+#calculator-wrapper .calculator-portfolio:active {
+  background: white;
+  color: black;
+}
+
+#calculator-wrapper .calculator-portfolio:focus {
+  outline: none;
+}
+
+#calculator-wrapper #drum-footer {
+  color: #777777;
+  text-align: center;
+}
+
+#calculator-wrapper #drum-footer .footer-link {
+  text-decoration: none;
+  color: #d8b800;
+}
+
+#calculator-wrapper #content {
+  width: 1000px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+}
+
+#calculator-wrapper #content #text {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 500px;
+  margin-left: 100px;
+  color: white;
+  font-size: 20px;
+}
+
+#calculator-wrapper #content #text h2 {
+  font-family: "HelveticaBlack";
+  font-size: 40px;
+  margin: 0 0 10px 0;
+}
+
+#calculator-wrapper #content #text p {
+  font-family: "HelveticaLight";
+  font-size: 16px;
+  line-height: 24px;
+  margin: 8px 0;
+}
+
+#calculator-wrapper #content #text code {
+  font-family: monospace;
+  font-size: 18px;
+  margin: 0px 16px;
+}
+
+#calculator-wrapper #content #text a {
+  font-family: "HelveticaLight";
+  text-decoration: none;
+  text-decoration: underline;
+  color: white;
+}
+
+#calculator-wrapper #content #calculator {
+  width: 400px;
+  min-width: 400px;
+  height: 587px;
+  background: #313131;
+  padding: 10px;
+  border-radius: 20px;
+  -webkit-box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
+          box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
+}
+
+#calculator-wrapper #content #calculator #formula {
+  height: 80px;
+  background: black;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 24px;
+  word-wrap: break-word;
+  border-radius: 20px 20px 0 0;
+}
+
+#calculator-wrapper #content #calculator #output {
+  height: 58px;
+  background: black;
+  color: white;
+  margin-bottom: 10px;
+  font-size: 35px;
+  text-align: right;
+  padding-right: 10px;
+  padding-top: 9px;
+  overflow: hidden;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap {
+  display: -ms-grid;
+  display: grid;
+  height: 400px;
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap button:focus {
+  outline: none;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap button:active {
+  color: black;
+  background: #ececec;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .mainBtn, #calculator-wrapper #content #calculator #buttonWrap .topBtn, #calculator-wrapper #content #calculator #buttonWrap .delBtn, #calculator-wrapper #content #calculator #buttonWrap .clearBtn, #calculator-wrapper #content #calculator #buttonWrap .rightBtn, #calculator-wrapper #content #calculator #buttonWrap .equalsBtn, #calculator-wrapper #content #calculator #buttonWrap .zeroBtn {
+  background: black;
+  color: white;
+  font-size: 30px;
+  border: none;
+  font-family: "HelveticaLight";
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .topBtn, #calculator-wrapper #content #calculator #buttonWrap .delBtn, #calculator-wrapper #content #calculator #buttonWrap .clearBtn {
+  background: #8a8a8a;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .delBtn {
+  padding-top: 10px;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .clearBtn {
+  background: #ffd900;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .rightBtn, #calculator-wrapper #content #calculator #buttonWrap .equalsBtn {
+  background: #575757;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .zeroBtn {
+  border-radius: 0 0 0 20px;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-column: 1 / span 2;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .equalsBtn {
+  border-radius: 0 0 20px 0;
+  background: #ffd900;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .equalsBtn:active {
+  background: white;
+}
+
+#calculator-wrapper #content #calculator #buttonWrap .clearBtn:active {
+  background: white;
+}
+
+@media (max-width: 900px) {
+  #calculator-wrapper #content {
+    margin-top: 20px;
+    display: inline-block;
+    width: 420px;
+  }
+  #calculator-wrapper #content #text {
+    width: 90%;
+    margin: 40px auto 40px;
+  }
+}
+/*# sourceMappingURL=Calculator.css.map */

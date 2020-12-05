@@ -1,0 +1,237 @@
+@font-face {
+  font-family: "Helvetica";
+  src: url("./fonts/HelveticaNeueLTStd-Roman.otf") format("opentype");
+}
+@font-face {
+  font-family: "HelveticaBold";
+  src: url("./fonts/HelveticaNeueLTStd-Bd.otf") format("opentype");
+}
+@font-face {
+  font-family: "HelveticaBlack";
+  src: url("./fonts/HelveticaNeueLTStd-Blk.otf") format("opentype");
+}
+@font-face {
+  font-family: "HelveticaLight";
+  src: url("./fonts/HelveticaLTStd-Light.otf") format("opentype");
+}
+
+// html * {
+//   font-family: "Helvetica", sans-serif;
+//   box-sizing: border-box;
+// }
+
+#calculator-wrapper {
+  font-family: "Helvetica", sans-serif;
+  box-sizing: border-box;
+  position: fixed;
+  display: flex;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  overflow: scroll;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#6b6b6b+0,000000+100 */
+  background: #6b6b6b; /* Old browsers */
+  background: -moz-linear-gradient(
+    top,
+    #6b6b6b 0%,
+    #000000 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    #6b6b6b 0%,
+    #000000 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #6b6b6b 0%,
+    #000000 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6b6b6b', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+
+  .calculator-portfolio {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    display: flex;
+    z-index: 99;
+    height: 40px;
+    width: 230px;
+    color: black;
+    background: rgb(255, 217, 0);
+    border-radius: 0 0 40px 0;
+    -moz-border-radius: 0 0 40px 0;
+    -webkit-border-radius: 0 0 40px 0;
+    font-size: 14px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+    padding-left: 10px;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+  }
+  .calculator-portfolio:hover {
+    background: black;
+    color: white;
+  }
+  .calculator-portfolio:active {
+    background: white;
+    color: black;
+  }
+  .calculator-portfolio:focus {
+    outline: none;
+  }
+
+  #drum-footer {
+    color: rgb(119, 119, 119);
+    text-align: center;
+    .footer-link {
+      text-decoration: none;
+      color: rgb(216, 184, 0);
+    }
+  }
+
+  #content {
+    width: 1000px;
+    margin: auto;
+    display: flex;
+    flex: 0 0 auto;
+
+    #text {
+      flex-direction: row;
+      width: 500px;
+      //background: red;
+      margin-left: 100px;
+      color: white;
+      font-size: 20px;
+      h2 {
+        font-family: "HelveticaBlack";
+        font-size: 40px;
+        margin: 0 0 10px 0;
+      }
+      p {
+        font-family: "HelveticaLight";
+        font-size: 16px;
+        line-height: 24px;
+        margin: 8px 0;
+      }
+      code {
+        font-family: monospace;
+        font-size: 18px;
+        //background: black;
+        margin: 0px 16px;
+      }
+      a {
+        font-family: "HelveticaLight";
+        text-decoration: none;
+        text-decoration: underline;
+        color: white;
+      }
+    }
+
+    #calculator {
+      width: 400px;
+      min-width: 400px;
+      height: 587px;
+      background: rgb(49, 49, 49);
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.8);
+
+      #formula {
+        height: 80px;
+        background: black;
+        color: white;
+        margin-bottom: 10px;
+        padding: 10px;
+        font-size: 24px;
+        word-wrap: break-word;
+        border-radius: 20px 20px 0 0;
+      }
+      #output {
+        height: 58px;
+        background: black;
+        color: white;
+        margin-bottom: 10px;
+        font-size: 35px;
+        text-align: right;
+        padding-right: 10px;
+        padding-top: 9px;
+        overflow: hidden;
+      }
+      #buttonWrap {
+        display: grid;
+        height: 400px;
+        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+
+        button:focus {
+          outline: none;
+        }
+        button:active {
+          color: black;
+          background: rgb(236, 236, 236);
+        }
+        .mainBtn {
+          background: black;
+          color: white;
+          font-size: 30px;
+          border: none;
+          font-family: "HelveticaLight";
+        }
+        .topBtn {
+          @extend .mainBtn;
+          background: rgb(138, 138, 138);
+        }
+        .delBtn {
+          @extend .topBtn;
+          padding-top: 10px;
+        }
+        .clearBtn {
+          @extend .topBtn;
+          background: rgb(255, 217, 0);
+        }
+        .rightBtn {
+          @extend .mainBtn;
+          background: rgb(87, 87, 87);
+        }
+        .zeroBtn {
+          @extend .mainBtn;
+          border-radius: 0 0 0 20px;
+          grid-column: 1 / span 2;
+        }
+        .equalsBtn {
+          @extend .mainBtn, .rightBtn;
+          border-radius: 0 0 20px 0;
+          background: rgb(255, 217, 0);
+        }
+        .equalsBtn:active {
+          background: white;
+        }
+        .clearBtn:active {
+          background: white;
+        }
+      }
+    }
+  }
+  @media (max-width: 900px) {
+    #content {
+      margin-top: 20px;
+      display: inline-block;
+      width: 420px;
+
+      #text {
+        width: 90%;
+        margin: 40px auto 40px;
+      }
+    }
+  }
+}
