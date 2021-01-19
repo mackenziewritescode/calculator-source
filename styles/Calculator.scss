@@ -1,27 +1,8 @@
-@font-face {
-  font-family: "Helvetica";
-  src: url("./fonts/HelveticaNeueLTStd-Roman.otf") format("opentype");
-}
-@font-face {
-  font-family: "HelveticaBold";
-  src: url("./fonts/HelveticaNeueLTStd-Bd.otf") format("opentype");
-}
-@font-face {
-  font-family: "HelveticaBlack";
-  src: url("./fonts/HelveticaNeueLTStd-Blk.otf") format("opentype");
-}
-@font-face {
-  font-family: "HelveticaLight";
-  src: url("./fonts/HelveticaLTStd-Light.otf") format("opentype");
-}
-
-// html * {
-//   font-family: "Helvetica", sans-serif;
-//   box-sizing: border-box;
-// }
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap");
 
 #calculator-wrapper {
-  font-family: "Helvetica", sans-serif;
+  font-family: Roboto, sans-serif;
+  font-weight: 400;
   box-sizing: border-box;
   position: fixed;
   display: flex;
@@ -112,12 +93,14 @@
       color: white;
       font-size: 20px;
       h2 {
-        font-family: "HelveticaBlack";
+        font-family: Roboto, sans-serif;
+        font-weight: 900;
         font-size: 40px;
         margin: 0 0 10px 0;
       }
       p {
-        font-family: "HelveticaLight";
+        font-family: Roboto, sans-serif;
+        font-weight: 300;
         font-size: 16px;
         line-height: 24px;
         margin: 8px 0;
@@ -129,7 +112,8 @@
         margin: 0px 16px;
       }
       a {
-        font-family: "HelveticaLight";
+        font-family: Roboto, sans-serif;
+        font-weight: 300;
         text-decoration: none;
         text-decoration: underline;
         color: white;
@@ -185,7 +169,8 @@
           color: white;
           font-size: 30px;
           border: none;
-          font-family: "HelveticaLight";
+          font-family: Roboto, sans-serif;
+          font-weight: 300;
         }
         .topBtn {
           @extend .mainBtn;
