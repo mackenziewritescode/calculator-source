@@ -3,6 +3,54 @@ import "../styles/Calculator.scss";
 import { portfolio, text, footer } from "./static";
 import Buttons from "./Buttons";
 
+function removeOpBeforeEquals(string) {
+  if (testMultipleOps(string)) {
+    return (
+      Math.round(10000000000 * eval(string.slice(0, -1))) / 10000000000
+    ).toString();
+  } else {
+    return (Math.round(10000000000 * eval(string)) / 10000000000).toString();
+  }
+}
+
+function testMultipleOps(string) {
+  let opRegex = /[-/*+=]/g;
+  let lastChar = string.toString().slice(-1);
+  if (opRegex.test(lastChar)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function testOps(string, op) {
+  let opRegex = /[-/*+=]/g;
+  let lastChar = string.slice(-1);
+
+  // if the last character is an operator
+  if (opRegex.test(lastChar)) {
+    // if it's +*/ followed by -, then it's allowed
+    if (op === "-" && /[+*/]/.test(lastChar)) {
+      return true;
+    }
+    // if it's --, then don't allow
+    return false;
+  }
+  // if empty string, +*/ not allowed
+  if (string === "0" && /[+*/]/.test(op)) {
+    return false;
+  }
+  // all other conditions are allowed
+  return true;
+}
+
+function decimalTest(formula, currentNum) {
+  let lastChar = formula.toString().slice(-1);
+  // test if the last char is % or if there's already a decimal
+  return lastChar === "%" || /\./.test(currentNum);
+}
+
+// --------------------------------------------------- -+- APP -+-
 function App() {
   const [output, setOutput] = useState("0");
   const [formula, setFormula] = useState("0");
@@ -87,15 +135,12 @@ function App() {
       case "-":
       case "*":
       case "/":
-        if (
-          testMultipleOps(formula) ||
-          testEmptyDisplay(displayFormula, value)
-        ) {
-          setDisplayFormula(displayFormula);
-          setFormula(formula);
-        } else {
+        if (testOps(formula, value)) {
           setDisplayFormula(displayFormula + display);
           setFormula(formula + value);
+        } else {
+          setDisplayFormula(displayFormula);
+          setFormula(formula);
         }
         break;
       case ".":
@@ -117,56 +162,14 @@ function App() {
     }
   };
 
-  function removeOpBeforeEquals(string) {
-    if (testMultipleOps(string)) {
-      return (
-        Math.round(10000000000 * eval(string.slice(0, -1))) / 10000000000
-      ).toString();
-
-      //return eval(string.slice(0, -1)).toString();
-    } else {
-      return (Math.round(10000000000 * eval(string)) / 10000000000).toString();
-      //return eval(string).toString();
-    }
-  }
-
-  function testMultipleOps(string) {
-    let opRegex = /[-/*+=]/g;
-    let lastChar = string.toString().slice(-1);
-    if (opRegex.test(lastChar)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  // function decimalTest(formula, currentNum) {
-  //   let lastChar = formula.toString().slice(-1);
-  //   // test if the last char is % or if there's already a decimal
-  //   if (lastChar === "%" || /\./.test(currentNum)) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  function decimalTest(formula, currentNum) {
-    let lastChar = formula.toString().slice(-1);
-    // test if the last char is % or if there's already a decimal
-    return lastChar === "%" || /\./.test(currentNum);
-  }
-
-  function testEmptyDisplay(string, op) {
-    if (string === "" && /[+*/]/.test(op)) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  // don't need tostring. do it to set output. it's cofusing to set answer to either a string or number
   function handleOutput(string) {
     let answer;
+    let lastChar = string.toString().slice(-1);
+
+    if (lastChar === "-") {
+      string = string.toString().slice(0, -1);
+    }
+
     if (testMultipleOps(string)) {
       answer = (
         Math.round(10000000000 * eval(string.slice(0, -1))) / 10000000000
@@ -179,7 +182,6 @@ function App() {
     if (answer === "NaN") {
       answer = "0";
     }
-
     setOutput(answer);
   }
 
@@ -191,7 +193,9 @@ function App() {
           <div id="formula">{displayFormula}</div>
           <div id="output">{output}</div>
           <Buttons handleButton={handleButton} />
-          {/* <div id="debugFormula">{formula}</div> */}
+          {/* <div id="debugFormula" style={{ color: "red" }}>
+            {formula}
+          </div> */}
         </div>
         {text}
       </div>

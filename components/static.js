@@ -42,7 +42,7 @@ const text = (
 );
 
 const footer = (
-  <footer id="drum-footer">
+  <footer id="calculator-footer">
     <p>
       This site was made by{" "}
       <a className="footer-link" href="http://www.sunkenworld.com/">
